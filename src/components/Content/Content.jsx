@@ -2,8 +2,12 @@ import React from 'react';
 import {FaUser} from 'react-icons/fa';
 import {BsCreditCardFill} from 'react-icons/bs';
 import checkIconMobile from '../../assets/mobile/checkpoint.svg';
+import {useSpring, animated} from 'react-spring';
 
 const Content = () => {
+  const customer = useSpring({customers: 10245, from: {customers: 0}});
+  const card = useSpring({cards: 12045, from: {cards: 0}});
+
   return (
     <section>
       <div className='ml-[70px] mr-[54px] font-bold flex flex-col items-center
@@ -12,36 +16,40 @@ const Content = () => {
       '>
         <div className='mt-16 gap-8 flex items-start'>
           <FaUser size={'22px'} className='mt-[12px]'/>
-          <p className='text-26'>
-            10245
+          <div className='text-26'>
+            <animated.div>
+              {customer.customers.to((val) => Math.floor(val))}
+            </animated.div>
             <p className='text-13 font-semibold mb-[36px]'>
               Customers
             </p>
-          </p>
+          </div>
         </div>
         <div className='flex items-start gap-8 mb-16'>
           <BsCreditCardFill size={'22px'} className='mt-[12px]'/>
-          <p className='text-26'>
-            12045
+          <div className='text-26'>
+            <animated.div>
+              {card.cards.to(val => Math.floor(val))}
+            </animated.div>
             <p className='text-13 font-semibold'>
               Cards Issued
             </p>
-          </p>
+          </div>
         </div>
       </div>
       <div className='text-13 flex flex-col w-[100%] mt-[90px] font-semibold'>
-        <p className='check-content'>
+        <div className='check-content'>
           <img src={checkIconMobile} alt="" />
           <p>Card reports send to your phone every weeks</p>
-        </p>
-        <p className='check-content'>
+        </div>
+        <div className='check-content'>
           <img src={checkIconMobile} alt="" />
           <p>No external fees</p>
-        </p>
-        <p className='check-content'>
+        </div>
+        <div className='check-content'>
           <img src={checkIconMobile} alt="" />
           <p>Set spending limits and restrictions</p>
-        </p>
+        </div>
       </div>
     </section>
   )
