@@ -9,10 +9,11 @@ const Content = () => {
   const card = useSpring({cards: 12045, from: {cards: 0}});
 
   return (
-    <section>
+    <section className='md:flex md:flex-row'>
       <div className='ml-[70px] mr-[54px] font-bold flex flex-col items-center
         bg-gradient-to-b from-white/40 to-transparent
         shadow-md rounded-[24px]
+        md:w-[20%]
       '>
         <div className='mt-16 gap-8 flex items-start'>
           <FaUser size={'22px'} className='mt-[12px]'/>
@@ -20,7 +21,7 @@ const Content = () => {
             <animated.div>
               {customer.customers.to((val) => Math.floor(val))}
             </animated.div>
-            <p className='text-13 font-semibold mb-[36px]'>
+            <p className='text-13 font-semibold mb-[36px] md:text-16'>
               Customers
             </p>
           </div>
@@ -31,13 +32,15 @@ const Content = () => {
             <animated.div>
               {card.cards.to(val => Math.floor(val))}
             </animated.div>
-            <p className='text-13 font-semibold'>
+            <p className='text-13 font-semibold md:text-16'>
               Cards Issued
             </p>
           </div>
         </div>
       </div>
-      <div className='text-13 flex flex-col w-[100%] mt-[90px] font-semibold'>
+      <div className='text-13 flex flex-col w-[100%] mt-[90px] font-semibold
+        md:w-[30%] md:text-16 md:ml-[20%] md:mt-0
+      '>
         <div className='check-content'>
           <img src={checkIconMobile} alt="" />
           <p>Card reports send to your phone every weeks</p>
