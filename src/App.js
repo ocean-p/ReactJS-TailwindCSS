@@ -33,9 +33,11 @@ function App() {
   }, [windowSize])
 
   return (
-    <div className='h-screen px-4 py-8 font-sora text-white
-      bg-gradient-to-b from-purple-900 to-purple-700
+    <div className='h-screen px-4 py-8 font-sora dark:text-white
+      bg-gradient-to-b dark:from-purple-900 dark:to-purple-700
+      from-white to-pink-500 text-black
       overflow-y-auto overflow-x-hidden
+      md:px-20
     '>
       <NavBar isMobile={isMobile}/>
       <Slogan/>

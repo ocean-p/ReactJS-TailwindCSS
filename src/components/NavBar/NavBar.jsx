@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { BsSunFill } from 'react-icons/bs';
 import { HiOutlineMenu } from 'react-icons/hi';
 import { MdOutlineClose } from 'react-icons/md';
+import { FaMoon } from 'react-icons/fa';
+import useDarkMode from '../../useDarkMode';
 
 const NavBar = ({ isMobile }) => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [isDarkMode, toggleDarkMode] = useDarkMode();
 
   const handleMenu = () => {
     setOpenMenu(!openMenu);
@@ -14,7 +17,16 @@ const NavBar = ({ isMobile }) => {
     <nav className='flex items-center'>
       <div className='flex items-center'>
         <div className='text-20 font-bold mr-2'>NerdCard</div>
-        <BsSunFill size={'24px'} color='#e9c46a' className='cursor-pointer' />
+        {isDarkMode ? (
+          <FaMoon size={'24px'} color='#e9c46a' className='cursor-pointer' 
+            onClick={toggleDarkMode}
+          />
+        ):(
+          <BsSunFill size={'24px'} color='#e9c46a' className='cursor-pointer' 
+            onClick={toggleDarkMode}
+          />
+        )}
+        
       </div>
       <ul className='md:flex md:gap-10 ml-auto text-16 font-semibold'>
         {openMenu && isMobile ?
