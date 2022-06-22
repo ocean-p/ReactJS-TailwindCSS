@@ -51,7 +51,7 @@ const NavBar = ({ isMobile }) => {
         }
         {openMenu &&
           <div className='absolute right-8 bg-white p-8 
-          text-center text-13 text-black'>
+          text-center text-13 text-black z-10'>
             <li className='cursor-pointer'>Features</li>
             <li className='cursor-pointer'>Menu</li>
             <li className='cursor-pointer'>Our Story</li>
